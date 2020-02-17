@@ -25,6 +25,13 @@ class Api::V1::MedicationsController < ApplicationController
         render json: @medication, status: 200
     end
 
+    def destroy
+        @medication = Medication.find(params[:id])
+        @medication.delete
+
+        render json: {medicationId: @medication.id}
+    end
+
     private
     def medication_params
         params.require(:note).permit(:name, :class, :indication, :dose, :frequency, :note)
