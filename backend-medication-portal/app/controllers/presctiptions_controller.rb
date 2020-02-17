@@ -1,2 +1,0 @@
-class PresctiptionsController < ApplicationController
-end
