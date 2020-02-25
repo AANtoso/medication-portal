@@ -51,4 +51,12 @@ class Patients {
             this.patientInfo.appendChild(element)
         }
     }
+
+    findMatch(e) {
+        e.preventDefault()
+        const input = e.currentTarget.value
+        let matchArray = this.patients.filter(pat => pat.name.includes(input))
+        let newPatientArray = matchArray.map(pat => pat.patientHTML()).join('')
+        this.searchResult.innerHTML = newPatientArray
+    }
 }
