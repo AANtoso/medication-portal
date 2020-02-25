@@ -9,5 +9,8 @@ class Medication {
         this.note = medication.note
         this.patients = this.getPatientNames(medication.patients)
     }
-    
+
+    getPatientNames(patients){
+        return patients.map(1 => 1.name).join(',')
+    }
 }
