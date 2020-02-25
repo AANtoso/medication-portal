@@ -1,7 +1,7 @@
 class Api::V1::MedicationsController < ApplicationController
 
     def index
-        @medications = Medications.all 
+        @medications = Medication.all 
 
         render json: @medications, status: 200
     end
