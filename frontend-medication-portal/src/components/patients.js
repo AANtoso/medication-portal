@@ -28,4 +28,7 @@ class Patients {
                     this.patients.push(newPatient)
                 }
             })
+            .then(() => this.renderPatientOptions())
+            .then(() => this.searchPatientInfo())
     }
+}
