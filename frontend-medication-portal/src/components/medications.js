@@ -31,11 +31,17 @@ class Medications {
         const params = [name, patient, class, indication, dose, frequency, note]
 
         this.adapter.createMedicationDB(params)
-        .then(medication => {
-            this.medications.push(new Medications(medication.data.attributes))
-            this.renderMedications()
-        })
-        
+            .then(medication => {
+                this.medications.push(new Medications(medication.data.attributes))
+                this.renderMedications()
+            })
+        this.medicationName.value = ''
+        this.inputPatient.value = ''
+        this.medicationClass.value = ''
+        this.medicationIndication.value = ''
+        this.medicationDose.value = ''
+        this.medicationFrequency.value = ''
+        this.medicationNote.value = ''
 
     }
 
