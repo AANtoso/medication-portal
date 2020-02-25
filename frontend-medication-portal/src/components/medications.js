@@ -42,7 +42,28 @@ class Medications {
         this.medicationDose.value = ''
         this.medicationFrequency.value = ''
         this.medicationNote.value = ''
+    }
 
+    fetchAndLoadMedications() {
+        this.adapter
+            .getMedications()
+            .then(medications => {
+                for(const medication of medications) {
+                    let medicationObj = {
+                        id: medication.id,
+                        patients: medication.patients,
+                        name: medication.name,
+                        class: medication.class,
+                        indication: medication.indication,
+                        dose: medication.dose,
+                        frequency: medication.frequency,
+                        note: medication.note
+                    }
+                    let newMedication = new Medications(medicationObj)
+                    this.medications.push(newMedication)
+                }
+            })
+            .then(() => this.renderMedications())
     }
 
 }
