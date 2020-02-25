@@ -13,4 +13,19 @@ class Patients {
         this.patientInfo.addEventListener('change', this.findMatch.bind(this))
         this.searchResult = document.querySelector('#search-result')
     }
-}
+
+    fetchAndLoadPatient() {
+        this.adapter
+            .getPatients()
+            .then(patients => {
+                for(const patient of patients.data) {
+                    let patientObj = {
+                        id: patients.id,
+                        name: patient.attributes.name,
+                        mrn: patient.attributes.mrn
+                    }
+                    let newPatient = new Patients(patientObj)
+                    this.patients.push(newPatient)
+                }
+            })
+    }
