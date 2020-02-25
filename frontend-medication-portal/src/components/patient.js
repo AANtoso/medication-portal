@@ -10,7 +10,7 @@ class Patient {
         return (`
             <div id = 'patient-container' class='patient-container card-body border border-secondary' patient-id='${this.id}'>
                 <h4>Patient: ${this.name}</h4></br>
-                <p>MRN: ${this.mrn}</p?
+                <p>MRN: ${this.mrn}</p>
             </div>
         `)
     }
