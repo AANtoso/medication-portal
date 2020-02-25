@@ -41,4 +41,14 @@ class Patients {
             this.patientSelect.appendChild(element)
         }
     }
+
+    searchPatientInfo() {
+        let options = this.patients.map(patient => patient.name)
+        let sortedOptions = options.sort()
+        for(const patient of sortedOptions) {
+            let element = document.createElement('option')
+            element.innerText = patient
+            this.patientInfo.appendChild(element)
+        }
+    }
 }
