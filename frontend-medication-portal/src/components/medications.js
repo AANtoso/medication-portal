@@ -19,4 +19,24 @@ class Medications {
         this.medicationForm.addEventListener('submit', this.createMedication.bind(this))
     }
 
+    createMedication(e) {
+        e.preventDefault()
+        const name = this.medicationName.value
+        const patient = this.inputPatient.value
+        const class = this.medicationClass.value
+        const indication = this.medicationIndication.value
+        const dose = this.medicationDose.value
+        const frequency = this.medicationFrequency.value
+        const note = this.medicationNote.value
+        const params = [name, patient, class, indication, dose, frequency, note]
+
+        this.adapter.createMedicationDB(params)
+        .then(medication => {
+            this.medications.push(new Medications(medication.data.attributes))
+            this.renderMedications()
+        })
+        
+
+    }
+
 }
