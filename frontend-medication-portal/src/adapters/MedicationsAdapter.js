@@ -28,4 +28,17 @@ class MedicationsAdapter {
         })
         .then(resp => resp.json())
     }
+
+    destroyMedicationId(medicationID) {
+        let configObj = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': "application/json"
+            }
+        }
+        return fetch(this.baseUrl + `/${MedicationId}`, configObj)
+            .then(resp => resp.json())
+    }
+    
 }
