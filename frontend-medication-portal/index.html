@@ -16,13 +16,27 @@
 <center>
 
 <body>
-    <div class ="new-medication-container">
-        Add a new medication:
+  <div id="patient-container">
+    <form id="patient-form">
+        <input type="text" name="patient-name" id="new-patient-name">
+        <input type="text" name="patient-mrn" id="new-patient-mrn">
+        <input type="submit" value="Create Patient">
+    </form>
+  </div>
+<div class="medication-container">
+    <h1>Note App</h1>
+    <div id="new-medication-container">
         <form id="new-medication-form">
-              <input type="text" name="medication-name" id="new-medication-name">
-              <input type="submit" value="Save Medication">
+            <input type="text" name="medication-name" id="new-medication-name">
+            <input type="text" name="medication-class" id="new-medication-class">
+            <input type="text" name="medication-indication" id="new-medication-indication">
+            <input type="text" name="medication-dose" id="new-medication-dose">
+            <input type="text" name="medication-frequency" id="new-medication-frequency">
+            <input type="text" name="medication-note" id="new-medication-note">
+            <input type="submit">
         </form>
     </div>
+</div>
     <script src="src/components/medication.js" ></script>
     <script src="src/components/medications.js" ></script>
     <script src="src/components/patient.js" ></script>
