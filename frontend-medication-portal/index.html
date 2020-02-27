@@ -16,25 +16,33 @@
 <center>
 
 <body>
-  <div id="patient-container">
-    <form id="patient-form">
-        <input type="text" name="patient-name" id="new-patient-name">
-        <input type="text" name="patient-mrn" id="new-patient-mrn">
+
+  <h1>Prescription Application</h1>
+    <h2>Patient</h2>
+  <div class="container">
+    <form id="new-patient-form">
+        <input type="text" name="new-patient-name" id="new-patient-name">
+        <input type="text" name="new-patient-mrn" id="new-patient-mrn">
         <input type="submit" value="Create Patient">
     </form>
+    <div id="patient-container">
+
+    </div>
   </div>
-<div class="medication-container">
-    <h1>Medication App</h1>
-    <div id="new-medication-container">
+
+<div class="container">
+    <h2>Medication</h2>
         <form id="new-medication-form">
-            <input type="text" name="medication-name" id="new-medication-name">
-            <input type="text" name="medication-class" id="new-medication-class">
-            <input type="text" name="medication-indication" id="new-medication-indication">
-            <input type="text" name="medication-dose" id="new-medication-dose">
-            <input type="text" name="medication-frequency" id="new-medication-frequency">
-            <input type="text" name="medication-note" id="new-medication-note">
-            <input type="submit">
+            <input type="text" name="new-medication-name" id="new-medication-name">
+            <input type="text" name="new-medication-class" id="new-medication-class">
+            <input type="text" name="new-medication-indication" id="new-medication-indication">
+            <input type="text" name="new-medication-dose" id="new-medication-dose">
+            <input type="text" name="new-medication-frequency" id="new-medication-frequency">
+            <input type="text" name="new-medication-note" id="new-medication-note">
+            <input type="submit" value="Create Medication">
         </form>
+    <div id="medication-container">
+
     </div>
 </div>
     <script src="src/components/medication.js" ></script>
