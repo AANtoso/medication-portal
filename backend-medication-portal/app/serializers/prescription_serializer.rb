@@ -1,4 +1,6 @@
 class PrescriptionSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :patient, :medication
+  belongs_to :patient
+  belings_to :medication
 end
