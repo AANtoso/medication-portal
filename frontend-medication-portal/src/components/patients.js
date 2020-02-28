@@ -7,18 +7,16 @@ class Patients {
     }
 
     initBindingAndEventListeners() {
-        this.patientSelect = document.querySelector('#input-patient')
-        this.searchContainer = document.querySelector('#search-container')
-        this.patientInfo = document.querySelector('#search-patient')
-        this.patientInfo.addEventListener('change', this.findMatch.bind(this))
-        this.searchResult = document.querySelector('#search-result')
+        this.newPatientName = document.getElementById('new-patient-name')
+        this.patientForm = document.getElementById('new-patient-form')
+        this.patientForm.addEventListener('submit', this.ceatePatient.bind(this))
     }
 
     fetchAndLoadPatient() {
         this.adapter
             .getPatients()
             .then(patients => {
-                for(const patient of patients.data) {
+                for (const patient of patients.data) {
                     let patientObj = {
                         id: patients.id,
                         name: patient.attributes.name,
@@ -35,7 +33,7 @@ class Patients {
     renderPatientOptions() {
         let options = this.patients.map(patient => patient.name)
         let sortedOptions = options.sort()
-        for(const patient of sortedOptions) {
+        for (const patient of sortedOptions) {
             let element = document.createElement('option')
             element.innerText = patient
             this.patientSelect.appendChild(element)
@@ -45,7 +43,7 @@ class Patients {
     searchPatientInfo() {
         let options = this.patients.map(patient => patient.name)
         let sortedOptions = options.sort()
-        for(const patient of sortedOptions) {
+        for (const patient of sortedOptions) {
             let element = document.createElement('option')
             element.innerText = patient
             this.patientInfo.appendChild(element)
