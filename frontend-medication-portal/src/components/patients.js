@@ -3,13 +3,14 @@ class Patients {
         this.patients = []
         this.adapter = new PatientsAdapter()
         this.initBindingAndEventListeners()
-        this.fetchAndLoadPatient()
+        this.fetchAndLoadPatients()
     }
 
     initBindingAndEventListeners() {
-        // this.newPatientName = document.getElementById('new-patient-name')
-        // this.patientForm = document.getElementById('new-patient-form')
-        // this.patientForm.addEventListener('submit', this.ceatePatient.bind(this))
+        this.container = document.querySelector('#patient-container')
+        this.newPatientName = document.getElementById('new-patient-name')
+        this.patientForm = document.getElementById('new-patient-form')
+            // this.patientForm.addEventListener('submit', this.createPatient.bind(this))
     }
 
     fetchAndLoadPatients() {
@@ -28,10 +29,10 @@ class Patients {
         this.adapter
             .getPatients()
             .then(patients => {
-                patients.forEach(patient => this.patients.push(patient))
+                patients.forEach(patient => this.patients.push(new Patient(patient)))
             })
             .then(() => {
-                this.render()
+                this.renderPatients()
             })
             //         // .then(patients => {
             //         //     for (const patient of patients.data) {
@@ -51,15 +52,15 @@ class Patients {
             //     console.log(localStorage)
     }
 
-    // renderPatientOptions() {
-    //     let options = this.patients.map(patient => patient.name)
-    //     let sortedOptions = options.sort()
-    //     for (const patient of sortedOptions) {
-    //         let element = document.createElement('option')
-    //         element.innerText = patient
-    //         this.patientSelect.appendChild(element)
-    //     }
-    // }
+    renderPatients() {
+        this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
+            // let sortedOptions = options.sort()
+            // for (const patient of sortedOptions) {
+            //     let element = document.createElement('option')
+            //     element.innerText = patient
+            //     this.patientSelect.appendChild(element)
+            // }
+    }
 
     // searchPatientInfo() {
     //     let options = this.patients.map(patient => patient.name)
