@@ -1,5 +1,5 @@
 h1 {
-    font-size: large;
+    font-size: xx-large;
     font-weight: bolder;
     color: rgb(0, 17, 255);
     font-style: normal;
@@ -8,7 +8,7 @@ h1 {
 h2 {
     font-size: medium;
     font-weight: bolder;
-    color: aqua;
+    color: rgb(255, 0, 234);
     font-style: normal;
 }
 
@@ -16,5 +16,19 @@ div {
     font-size: small;
     font-weight: bold;
     color: rgb(9, 54, 9);
+    font-style: normal;
+}
+
+#patient-container {
+    font-size: large;
+    font-weight: normal;
+    color: darkred;
+    font-style: normal;
+}
+
+h4 {
+    font-size: smaller;
+    font-weight: normal;
+    color: darksalmon;
     font-style: normal;
 }
