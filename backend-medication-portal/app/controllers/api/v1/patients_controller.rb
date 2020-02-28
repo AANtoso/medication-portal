@@ -1,20 +1,20 @@
 class Api::V1::PatientsController < ApplicationController
     def index
         patients = Patient.all
-        render json: PatientSerializer.new(patients)
+        render json: patients
     end
 
     def show
         patient = Patient.find(params[:id])
-        options = {
-            include: [:medications]
-          }
-        render json: PatientSerializer.new(patient, options)
+        # options = {
+        #     include: [:medications]
+        #   }
+        render json: patient
     end
 
     def create
         patient = Patient.create(patient_params)
-        render json: PatientSerializer.new(patient)
+        render json: patient, inlude: :medication
     end
 
     private
