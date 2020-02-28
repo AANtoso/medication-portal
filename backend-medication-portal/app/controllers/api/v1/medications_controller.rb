@@ -34,6 +34,6 @@ class Api::V1::MedicationsController < ApplicationController
 
     private
     def medication_params
-        params.require(:note).permit(:name, :class, :indication, :dose, :frequency, :note)
+        params.require(:note).permit(:name, :pharm_class, :indication, :dose, :frequency, :note)
     end
 end

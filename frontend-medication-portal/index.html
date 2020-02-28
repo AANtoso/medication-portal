@@ -2,65 +2,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Arimo|Fjalla+One|Archivo Narrow&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  
-  <title>Medication Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Fjalla+One|Archivo Narrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Medication Portal</title>
 </head>
 
 
 <center>
 
-<body>
+    <body>
 
-  <h1>Prescription Application</h1>
-    <h2>Patient</h2>
-  <div class="container">
-    <form id="new-patient-form">
-        <label for='name'>Name:</label>
-        <input type="text" name="new-patient-name" id="new-patient-name">
-        <label for='mrn'>MRN:</label>
-        <input type="text" name="new-patient-mrn" id="new-patient-mrn">
-        <input type="submit" value="Create Patient">
-    </form>
-    <div id="patient-container">
+        <h1>Prescription Application</h1>
+        <h2>Patient</h2>
+        <div class="container">
+            <form id="new-patient-form">
+                <label for='name'>Name:</label>
+                <input type="text" name="new-patient-name" id="new-patient-name">
+                <label for='mrn'>MRN:</label>
+                <input type="text" name="new-patient-mrn" id="new-patient-mrn">
+                <input type="submit" value="Create Patient">
+            </form>
+            <div id="patient-container">
 
-    </div>
-  </div>
+            </div>
+        </div>
 
-<div class="container">
-    <h2>Medication</h2>
-        <form id="new-medication-form">
-            <label for='name'>Name:</label>
-            <input type="text" name="new-medication-name" id="new-medication-name">
-            <label for='class'>Class:</label>
-            <input type="text" name="new-medication-class" id="new-medication-class">
-            <label for='indication'>Indication:</label>
-            <input type="text" name="new-medication-indication" id="new-medication-indication">
-            <label for='dose'>Dose:</label>
-            <input type="text" name="new-medication-dose" id="new-medication-dose">
-            <label for='frequency'>Frequency:</label>
-            <input type="text" name="new-medication-frequency" id="new-medication-frequency">
-            <label for='note'>Note:</label>
-            <input type="text" name="new-medication-note" id="new-medication-note">
-            <input type="submit" value="Create Medication">
-        </form>
-    <div id="medication-container">
+        <div class="container">
+            <h2>Medication</h2>
+            <form id="new-medication-form">
+                <label for='name'>Name:</label>
+                <input type="text" name="new-medication-name" id="new-medication-name">
+                <label for='pharm_class'>Pharm Class:</label>
+                <input type="text" name="new-medication-pharm_class" id="new-medication-pharm_class">
+                <label for='indication'>Indication:</label>
+                <input type="text" name="new-medication-indication" id="new-medication-indication">
+                <label for='dose'>Dose:</label>
+                <input type="text" name="new-medication-dose" id="new-medication-dose">
+                <label for='frequency'>Frequency:</label>
+                <input type="text" name="new-medication-frequency" id="new-medication-frequency">
+                <label for='note'>Note:</label>
+                <input type="text" name="new-medication-note" id="new-medication-note">
+                <input type="submit" value="Create Medication">
+            </form>
+            <div id="medication-container">
 
-    </div>
-</div>
-    <script src="src/components/medication.js" ></script>
-    <script src="src/components/medications.js" ></script>
-    <script src="src/components/patient.js" ></script>
-    <script src="src/components/patients.js" ></script>
-    <script src="src/components/app.js" ></script>
-    <script src="src/adapters/MedicationsAdapter.js" ></script>
-    <script src="src/adapters/PatientsAdapter.js" ></script>
-    <script src="src/index.js" ></script>
-</body>
+            </div>
+        </div>
+        <script src="src/components/medication.js"></script>
+        <script src="src/components/medications.js"></script>
+        <script src="src/components/patient.js"></script>
+        <script src="src/components/patients.js"></script>
+        <script src="src/components/app.js"></script>
+        <script src="src/adapters/MedicationsAdapter.js"></script>
+        <script src="src/adapters/PatientsAdapter.js"></script>
+        <script src="src/index.js"></script>
+    </body>
+
 </html>
 </center>

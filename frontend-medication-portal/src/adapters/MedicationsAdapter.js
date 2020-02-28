@@ -11,7 +11,7 @@ class MedicationsAdapter {
     async createMedicationDB(params) {
         let medicationData = {
             name: params[0],
-            class: params[1],
+            pharm_class: params[1],
             indication: params[2],
             dose: params[3],
             frequency: params[4],

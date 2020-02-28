@@ -11,7 +11,7 @@ class Medications {
         this.medicationForm = document.querySelector('#new-medication-form')
         this.inputPatient = this.medicationForm.querySelector('#input-[patient')
         this.medicationName = this.medicationForm.querySelector('#input-name')
-        this.medicationClass = this.medicationForm.querySelector('#input-class')
+        this.medicationPharmClass = this.medicationForm.querySelector('#input-pharm_class')
         this.medicationIndication = this.medicationForm.querySelector('#input-indication')
         this.medicationDose = this.medicationForm.querySelector('#input-dose')
         this.medicationFrequency = this.medicationForm.querySelector('#input-frequency')
@@ -23,12 +23,12 @@ class Medications {
         e.preventDefault()
         const name = this.medicationName.value
         const patient = this.inputPatient.value
-        const class = this.medicationClass.value
+        const pharm_class = this.medicationPharmClass.value
         const indication = this.medicationIndication.value
         const dose = this.medicationDose.value
         const frequency = this.medicationFrequency.value
         const note = this.medicationNote.value
-        const params = [name, patient, class, indication, dose, frequency, note]
+        const params = [name, patient, pharm_class, indication, dose, frequency, note]
 
         this.adapter.createMedicationDB(params)
             .then(medication => {
@@ -37,7 +37,7 @@ class Medications {
             })
         this.medicationName.value = ''
         this.inputPatient.value = ''
-        this.medicationClass.value = ''
+        this.medicationPharmClass.value = ''
         this.medicationIndication.value = ''
         this.medicationDose.value = ''
         this.medicationFrequency.value = ''
@@ -48,12 +48,12 @@ class Medications {
         this.adapter
             .getMedications()
             .then(medications => {
-                for(const medication of medications) {
+                for (const medication of medications) {
                     let medicationObj = {
                         id: medication.id,
                         patients: medication.patients,
                         name: medication.name,
-                        class: medication.class,
+                        pharm_class: medication.pharm_class,
                         indication: medication.indication,
                         dose: medication.dose,
                         frequency: medication.frequency,
@@ -70,7 +70,7 @@ class Medications {
         this.container.innerHTML = this.medications.map(medication => medication.medicationHTML()).join('')
         this.container.addEventListener('click', (e) => {
             e.preventDefault()
-            if(e.target.classList.contains('delete-button')) {
+            if (e.target.classList.contains('delete-button')) {
                 let medicationId = e.target.parentElement.getAttributes("data-id")
                 this.deleteMedication(medicationId)
             }
@@ -81,9 +81,9 @@ class Medications {
         let parsedId = parseInt(medicationId, 10)
         this.adaptem
             .destroyMedicationId(parsedId)
-        let removeIndex = this.medications.map(function(c){
-                return medicationId.id
-            }).indexOf(parsedId)
+        let removeIndex = this.medications.map(function(c) {
+            return medicationId.id
+        }).indexOf(parsedId)
         this.medications.splice(removeIndex, 1)
         document.querySelector('[data-id="' + medicationId + '"]').parentElement.remove()
     }
