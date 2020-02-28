@@ -7,12 +7,7 @@ class Medication {
         this.dose = medicationJSON.dose
         this.frequency = medicationJSON.frequency
         this.note = medicationJSON.note
-            // this.patients = this.getPatientNames(medication.patients)
     }
-
-    //     getPatientNames(patients) {
-    //         return patients.map(1 => 1. name).join(',')
-    //     }
 
     medicationHTML() {
         return (`

@@ -6,9 +6,6 @@ class Api::V1::PatientsController < ApplicationController
 
     def show
         patient = Patient.find(params[:id])
-        # options = {
-        #     include: [:medications]
-        #   }
         render json: patient
     end
 
