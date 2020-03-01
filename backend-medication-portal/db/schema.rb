@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_231822) do
   enable_extension "plpgsql"
 
   create_table "medications", force: :cascade do |t|
+    t.integer "patient_id"
     t.string "name"
     t.string "pharm_class"
     t.string "indication"

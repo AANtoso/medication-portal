@@ -22,9 +22,9 @@
         <div class="container">
             <form id="new-patient-form">
                 <label for='name'>Name:</label>
-                <input type="text" name="new-patient-name" id="new-patient-name">
+                <input type="text" name="name" id="new-patient-name">
                 <label for='mrn'>MRN:</label>
-                <input type="text" name="new-patient-mrn" id="new-patient-mrn">
+                <input type="text" name="mrn" id="new-patient-mrn">
                 <input type="submit" value="Create Patient">
             </form>
             <div id="patient-container">
@@ -35,6 +35,8 @@
         <div class="container">
             <h2>Medication</h2>
             <form id="new-medication-form">
+                <label for='patient_id'>Patient ID:</label>
+                <input type="text" name="patient-id" id="patient">
                 <label for='name'>Name:</label>
                 <input type="text" name="new-medication-name" id="new-medication-name">
                 <label for='pharm_class'>Pharm Class:</label>
