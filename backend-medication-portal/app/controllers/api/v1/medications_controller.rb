@@ -8,9 +8,6 @@ class Api::V1::MedicationsController < ApplicationController
 
     def show
         medication = Medication.find_by(id:params[:id])
-        # options = {
-        #     include: [:patients]
-        # }
         render json: medication
     end
 

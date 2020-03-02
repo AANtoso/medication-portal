@@ -23,6 +23,5 @@ class PatientsAdapter {
                 body: JSON.stringify(patientData)
             })
             .then(resp => resp.json())
-            // .then(res => console.log(res))
     }
 }
