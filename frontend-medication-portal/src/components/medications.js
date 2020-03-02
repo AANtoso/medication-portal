@@ -57,16 +57,8 @@ class Medications {
     }
 
     renderMedications() {
-            this.container.innerHTML = this.medications.map(medication => medication.medicationHTML()).join('')
-        }
-        //     this.container.addEventListener('click', (e) => {
-        //         e.preventDefault()
-        //         if (e.target.classList.contains('delete-button')) {
-        //             let medicationId = e.target.parentElement.getAttributes("data-id")
-        //             this.deleteMedication(medicationId)
-        //         }
-        //     })
-        // }
+        this.container.innerHTML = this.medications.map(medication => medication.medicationHTML()).join('')
+    }
 
     renderNewMedication() {
         console.log(localStorage)

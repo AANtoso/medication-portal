@@ -15,7 +15,7 @@ class MedicationsAdapter {
             pharmClass: params[2],
             indication: params[3],
             dose: params[4],
-            frequency: params[4],
+            frequency: params[5],
             note: params[6]
         }
 

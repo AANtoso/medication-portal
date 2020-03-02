@@ -11,7 +11,7 @@ class PatientsAdapter {
     createPatientDB(params) {
         let patientData = {
             name: params[0],
-            mrn: params[1],
+            mrn: params[1]
         }
 
         return fetch(this.baseUrl, {
