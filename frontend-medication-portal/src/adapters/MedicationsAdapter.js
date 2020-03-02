@@ -8,25 +8,27 @@ class MedicationsAdapter {
             .then(res => res.json())
     }
 
-    async createMedicationDB(params) {
+    createMedicationDB(params) {
         let medicationData = {
-            name: params[0],
-            pharm_class: params[1],
-            indication: params[2],
-            dose: params[3],
+            patientId: params[0],
+            name: params[1],
+            pharmClass: params[2],
+            indication: params[3],
+            dose: params[4],
             frequency: params[4],
-            notes: params[5]
+            note: params[6]
         }
 
         return fetch(this.baseUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': "application/json"
+                    // 'Accept': "application/json"
                 },
                 body: JSON.stringify(medicationData)
             })
             .then(resp => resp.json())
+            .then(res => console.log(res))
     }
 
     deleteMedication(id) {

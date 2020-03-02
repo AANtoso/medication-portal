@@ -9,24 +9,13 @@ class Patients {
     initBindingAndEventListeners() {
         this.container = document.querySelector('#patient-container')
         this.newPatientName = document.getElementById('new-patient-name')
+        this.newPatientMrn = document.getElementById('new-patient-mrn')
         this.patientForm = document.getElementById('new-patient-form')
         this.patientForm = document.querySelector('#new-patient-form')
         this.patientForm.addEventListener('submit', this.createPatient.bind(this))
     }
 
     fetchAndLoadPatients() {
-        // this.patientsAdapter.getPatients().then(patients => {
-        //     patients.map(patient => this.patients.push(new Patients(patient)))
-        // })
-        // .then(this.medicationsAdapter.getMedications().then(medications => {
-        //     medications.map(medication => this.medications.push(new medication(medication)))
-        // }))
-        // .then(() => {
-        //     this.displayPatients()
-        // })
-        // .then(() => {
-        //     this.displayMedications()
-        // })
         this.adapter
             .getPatients()
             .then(patients => {
@@ -35,48 +24,26 @@ class Patients {
             .then(() => {
                 this.renderPatients()
             })
-            //         // .then(patients => {
-            //         //     for (const patient of patients.data) {
-            //         //         let patientObj = {
-            //         //             id: patients.id,
-            //         //             name: patient.attributes.name,
-            //         //             mrn: patient.attributes.mrn
-            //         //         }
-            //         //         let newPatient = new Patients(patientObj)
-            //         //         this.patients.push(newPatient)
-            //         //     }
-            //         // })
-            //         // .then(() => this.renderPatientOptions())
-            //         // .then(() => this.searchPatientInfo())
-            // }
-            // render() {
-            //     console.log(localStorage)
     }
 
     createPatient(e) {
         e.preventDefault()
-        const name = this.patientName.value
-        const mrn = this.patientMrn.value
+        const name = this.newPatientName.value
+        const mrn = this.newPatientMrn.value
         const params = [name, mrn]
-
+            // debugger
         this.adapter.createPatientDB(params)
-        then(patient => {
-            this.patients.push(new Patient(patients.data.attributes))
-            this.renderPatients()
-        })
-        this.patientName.value = ''
-        this.patientMrn.value = ''
+            .then(patient => {
+                // this.patient.push(new Patient(patients.data.attributes))
+                this.renderPatients(patient)
+            })
+        this.newPatientName.value = ''
+        this.newPatientMrn.value = ''
     }
 
 
     renderPatients() {
         this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
-            // let sortedOptions = options.sort()
-            // for (const patient of sortedOptions) {
-            //     let element = document.createElement('option')
-            //     element.innerText = patient
-            //     this.patientSelect.appendChild(element)
-            // }
     }
 
     // searchPatientInfo() {

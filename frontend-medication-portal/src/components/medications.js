@@ -8,7 +8,13 @@ class Medications {
 
     initBindingAndEventListeners() {
         this.container = document.querySelector('#medication-container')
+        this.patientId = document.getElementById('patient')
         this.newMedicationName = document.getElementById('new-medication-name')
+        this.newMedicationPharmClass = document.getElementById('new-medication-pharm_class')
+        this.newMedicationIndication = document.getElementById('new-medication-indication')
+        this.newMedicationDose = document.getElementById('new-medication-dose')
+        this.newMedicationFrequency = document.getElementById('new-medication-frequency')
+        this.newMedicationNote = document.getElementById('new-medication-note')
         this.medicationForm = document.getElementById('new-medication-form')
         this.medicationForm = document.querySelector('#new-medication-form')
         this.medicationForm.addEventListener('submit', this.createMedication.bind(this))
@@ -16,25 +22,27 @@ class Medications {
 
     createMedication(e) {
         e.preventDefault()
-        const name = this.medicationName.value
-        const pharm_class = this.medicationPharm_class.value
-        const indication = this.medicationIndication.value
-        const dose = this.medicationDose.value
-        const frequency = this.medicationFrequency.value
-        const note = this.medicationNote.value
-        const params = [name, pharm_class, indication, dose, frequency, note]
+        const patientId = this.patientId.value
+        const name = this.newMedicationName.value
+        const pharmClass = this.newMedicationPharmClass.value
+        const indication = this.newMedicationIndication.value
+        const dose = this.newMedicationDose.value
+        const frequency = this.newMedicationFrequency.value
+        const note = this.newMedicationNote.value
+        const params = [patientId, name, pharmClass, indication, dose, frequency, note]
 
         this.adapter.createMedicationDB(params)
-        then(medication => {
-            this.medications.push(new Medication(medication.data.attributes))
-            this.renderMedications()
-        })
-        this.medicationName.value = ''
-        this.medicationPharm_class.value = ''
-        this.medicationIndication.value = ''
-        this.medicationDose.value = ''
-        this.medicationFrequency.value = ''
-        this.medicationNote.value = ''
+            .then(medication => {
+                // this.medications.push(new Medication(medication.data.attributes))
+                this.renderMedications(medication)
+            })
+        this.patientId.value = ''
+        this.newMedicationName.value = ''
+        this.newMedicationPharmClass.value = ''
+        this.newMedicationIndication.value = ''
+        this.newMedicationDose.value = ''
+        this.newMedicationFrequency.value = ''
+        this.newMedicationNote.value = ''
     }
 
     fetchAndLoadMedications() {

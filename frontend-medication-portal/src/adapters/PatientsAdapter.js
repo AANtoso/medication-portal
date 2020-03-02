@@ -8,7 +8,7 @@ class PatientsAdapter {
             .then(res => res.json())
     }
 
-    async createPatientDB(params) {
+    createPatientDB(params) {
         let patientData = {
             name: params[0],
             mrn: params[1],
@@ -18,10 +18,11 @@ class PatientsAdapter {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': "application/json"
+                    // 'Accept': "application/json"
                 },
                 body: JSON.stringify(patientData)
             })
             .then(resp => resp.json())
+            .then(res => console.log(res))
     }
 }
