@@ -31,10 +31,10 @@ class Patients {
         const name = this.newPatientName.value
         const mrn = this.newPatientMrn.value
         const params = [name, mrn]
-            // debugger
         this.adapter.createPatientDB(params)
             .then(patient => {
-                this.renderNewPatient()
+                const newPatient = new Patient(patient)
+                this.container.innerHTML += newPatient.patientHTML()
             })
         this.newPatientName.value = ''
         this.newPatientMrn.value = ''
@@ -42,13 +42,6 @@ class Patients {
 
     renderPatients() {
         this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
-    }
-
-
-    renderNewPatient() {
-        console.log(localStorage)
-            // debugger
-            // this.container.innerHTML = patient.patientHTML()
     }
 
 }

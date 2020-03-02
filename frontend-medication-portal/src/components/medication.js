@@ -1,9 +1,9 @@
 class Medication {
     constructor(medicationJSON) {
         this.id = medicationJSON.id
-        this.patientId = medicationJSON.patientId
+        this.patientId = medicationJSON.patient_id
         this.name = medicationJSON.name
-        this.pharmClass = medicationJSON.pharmClass
+        this.pharmClass = medicationJSON.pharm_class
         this.indication = medicationJSON.indication
         this.dose = medicationJSON.dose
         this.frequency = medicationJSON.frequency

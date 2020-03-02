@@ -10,14 +10,15 @@ class MedicationsAdapter {
 
     createMedicationDB(params) {
         let medicationData = {
-            patientId: params[0],
+            patient_id: params[0],
             name: params[1],
-            pharmClass: params[2],
+            pharm_class: params[2],
             indication: params[3],
             dose: params[4],
             frequency: params[5],
             note: params[6]
         }
+        console.log(medicationData)
 
         return fetch(this.baseUrl, {
                 method: 'POST',
@@ -28,7 +29,6 @@ class MedicationsAdapter {
                 body: JSON.stringify(medicationData)
             })
             .then(resp => resp.json())
-            .then(res => console.log(res))
     }
 
     deleteMedication(id) {

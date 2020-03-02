@@ -33,8 +33,10 @@ class Medications {
 
         this.adapter.createMedicationDB(params)
             .then(medication => {
-                // this.medications.push(new Medication(medication.data.attributes))
-                this.renderNewMedication(medication)
+                const newMedication = new Medication(medication)
+                this.container.innerHTML += newMedication.medicationHTML()
+                    // console.log(medication)
+                    // this.renderNewMedication(medication)
             })
         this.patientId.value = ''
         this.newMedicationName.value = ''
@@ -58,12 +60,6 @@ class Medications {
 
     renderMedications() {
         this.container.innerHTML = this.medications.map(medication => medication.medicationHTML()).join('')
-    }
-
-    renderNewMedication() {
-        console.log(localStorage)
-            // debugger
-            // this.container.innerHTML = medication.medicationHTML()
     }
 
     // deleteMedication(medicationId) {

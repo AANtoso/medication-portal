@@ -16,7 +16,7 @@ class Api::V1::MedicationsController < ApplicationController
 
     def create
         patient = Patient.find_by(id: params[:patient_id])
-        medication = Medication.create(medication_params)
+        medication = patient.medications.create(medication_params)
         render json: medication, include: :patient
     end
 
