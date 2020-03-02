@@ -35,7 +35,9 @@ class Patients {
         this.adapter.createPatientDB(params)
             .then(patient => {
                 // this.patient.push(new Patient(patients.data.attributes))
-                this.renderPatients(patient)
+                // debugger
+                // console.log(patient)
+                this.renderNewPatient()
             })
         this.newPatientName.value = ''
         this.newPatientMrn.value = ''
@@ -44,6 +46,12 @@ class Patients {
 
     renderPatients() {
         this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
+    }
+
+    renderNewPatient() {
+        console.log(localStorage)
+            // debugger
+            // this.container.innerHTML = patient.patientHTML()
     }
 
     // searchPatientInfo() {

@@ -34,7 +34,7 @@ class Medications {
         this.adapter.createMedicationDB(params)
             .then(medication => {
                 // this.medications.push(new Medication(medication.data.attributes))
-                this.renderMedications(medication)
+                this.renderNewMedication(medication)
             })
         this.patientId.value = ''
         this.newMedicationName.value = ''
@@ -67,6 +67,12 @@ class Medications {
         //         }
         //     })
         // }
+
+    renderNewMedication() {
+        console.log(localStorage)
+            // debugger
+            // this.container.innerHTML = medication.medicationHTML()
+    }
 
     // deleteMedication(medicationId) {
     //     let parsedId = parseInt(medicationId, 10)

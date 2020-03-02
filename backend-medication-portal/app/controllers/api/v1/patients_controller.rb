@@ -11,7 +11,7 @@ class Api::V1::PatientsController < ApplicationController
 
     def create
         patient = Patient.create(patient_params)
-        render json: patient, include: :medication
+        render json: patient, include: :medications
     end
 
     private
