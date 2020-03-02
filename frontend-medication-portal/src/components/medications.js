@@ -35,8 +35,6 @@ class Medications {
             .then(medication => {
                 const newMedication = new Medication(medication)
                 this.container.innerHTML += newMedication.medicationHTML()
-                    // console.log(medication)
-                    // this.renderNewMedication(medication)
             })
         this.patientId.value = ''
         this.newMedicationName.value = ''
