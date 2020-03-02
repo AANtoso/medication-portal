@@ -10,6 +10,7 @@ class Patients {
         this.container = document.querySelector('#patient-container')
         this.newPatientName = document.getElementById('new-patient-name')
         this.patientForm = document.getElementById('new-patient-form')
+        this.patientForm = document.querySelector('#new-patient-form')
         this.patientForm.addEventListener('submit', this.createPatient.bind(this))
     }
 
@@ -52,16 +53,20 @@ class Patients {
             //     console.log(localStorage)
     }
 
-    // createPatient(e) {
-    //     e.preventDefault()
-    //     const current_patient = localStorage.getItem('currentPatient')
-    //     const value = this.newPatientBody.value;
-    //     this.adapter.createPatient(value, current_patient).then(patient => {
-    //         this.patients.push(new Patient(patient))
-    //         this.newPatientBody.value = ''
-    //         this.render()
-    //     })
-    // }
+    createPatient(e) {
+        e.preventDefault()
+        const name = this.patientName.value
+        const mrn = this.patientMrn.value
+        const params = [name, mrn]
+
+        this.adapter.createPatientDB(params)
+        then(patient => {
+            this.patients.push(new Patient(patients.data.attributes))
+            this.renderPatients()
+        })
+        this.patientName.value = ''
+        this.patientMrn.value = ''
+    }
 
 
     renderPatients() {
