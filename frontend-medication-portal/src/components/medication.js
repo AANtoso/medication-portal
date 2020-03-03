@@ -20,7 +20,7 @@ class Medication {
                     <p>Dose: ${this.dose}</p>
                     <p>Frequency: ${this.frequency}</p>
                     <p>Note: ${this.note}</p>
-                    <button name ='delete-medication' class"delete-button btn btn-secondary btn-sm">Delete</button>
+                    <button name ='delete-medication' class"delete-button btn btn-secondary btn-sm" id="${this.id}">Delete</button>
                 </div>
             `)
     }

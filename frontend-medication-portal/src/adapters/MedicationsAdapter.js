@@ -32,7 +32,7 @@ class MedicationsAdapter {
     }
 
     deleteMedication(id) {
-        return fetch(this.baseUrl + `/${MedicationId}`, {
+        return fetch(this.baseUrl + `/${id}`, {
                 method: 'DELETE',
             })
             .then(resp => resp.json())

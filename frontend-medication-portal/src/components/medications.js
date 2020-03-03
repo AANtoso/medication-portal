@@ -8,6 +8,7 @@ class Medications {
 
     initBindingAndEventListeners() {
         this.container = document.querySelector('#medication-container')
+        this.container.addEventListener('click', this.deleteMedication.bind(this))
         this.patientId = document.getElementById('patient')
         this.newMedicationName = document.getElementById('new-medication-name')
         this.newMedicationPharmClass = document.getElementById('new-medication-pharm_class')
@@ -72,8 +73,9 @@ class Medications {
     // }
 
     deleteMedication(e) {
+        console.log(e.target.id)
         const li = e.target.parentNode
-        const id = li.dataset.id
+        const id = e.target.id
         this.adapter.deleteMedication(id)
         li.remove()
     }
