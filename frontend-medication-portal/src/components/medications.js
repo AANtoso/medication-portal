@@ -62,12 +62,19 @@ class Medications {
 
     // deleteMedication(medicationId) {
     //     let parsedId = parseInt(medicationId, 10)
-    //     this.adaptem
+    //     this.adapter
     //         .destroyMedicationId(parsedId)
-    //     let removeIndex = this.medications.map(function(c) {
-    //         return medicationId.id
+    //     let removeIndex = this.medications.map(function(medication) {
+    //         return medication.id
     //     }).indexOf(parsedId)
     //     this.medications.splice(removeIndex, 1)
     //     document.querySelector('[data-id="' + medicationId + '"]').parentElement.remove()
     // }
+
+    deleteMedication(e) {
+        const li = e.target.parentNode
+        const id = li.dataset.id
+        this.adapter.deleteMedication(id)
+        li.remove()
+    }
 }

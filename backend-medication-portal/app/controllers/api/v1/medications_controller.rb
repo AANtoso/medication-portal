@@ -23,10 +23,16 @@ class Api::V1::MedicationsController < ApplicationController
     #     render json: medication, include: :patient
     # end
 
+    def destroy
+        medication = Medication.find(params[:id])
+        medication.delete
+        render json: {medicationID: medication.id}
+    end
+
     # def destroy
     #     medication = Medication.find_by(id:params[:id])
     #     medication.destroy
-    #     render json: medication.id
+    #     render json: medication
     # end
 
     private
