@@ -24,4 +24,9 @@ class PatientsAdapter {
             })
             .then(resp => resp.json())
     }
+    sortPati() {
+        return fetch(this.baseUrl)
+            .then(resp => resp.json())
+            // .then(res => res.json())
+    }
 }
