@@ -61,17 +61,6 @@ class Medications {
         this.container.innerHTML = this.medications.map(medication => medication.medicationHTML()).join('')
     }
 
-    // deleteMedication(medicationId) {
-    //     let parsedId = parseInt(medicationId, 10)
-    //     this.adapter
-    //         .destroyMedicationId(parsedId)
-    //     let removeIndex = this.medications.map(function(medication) {
-    //         return medication.id
-    //     }).indexOf(parsedId)
-    //     this.medications.splice(removeIndex, 1)
-    //     document.querySelector('[data-id="' + medicationId + '"]').parentElement.remove()
-    // }
-
     deleteMedication(e) {
         console.log(e.target.id)
         const li = e.target.parentNode
