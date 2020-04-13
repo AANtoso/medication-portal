@@ -8,6 +8,7 @@ class Patients {
 
     initBindingAndEventListeners() {
         this.container = document.querySelector('#patient-container')
+        this.container.addEventListener('click', this.deletePatient.bind(this))
         this.newPatientName = document.getElementById('new-patient-name')
         this.newPatientMrn = document.getElementById('new-patient-mrn')
         this.patientForm = document.getElementById('new-patient-form')
@@ -75,8 +76,15 @@ class Patients {
     }
 
     renderPatients() {
-        console.log(this.patients)
+        // console.log(this.patients)
         this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
     }
 
+    deletePatient(e) {
+        console.log(e.target.id)
+        const li = e.target.parentNode
+        const id = e.target.id
+        this.adapter.deletePatient(id)
+        li.remove()
+    }
 }

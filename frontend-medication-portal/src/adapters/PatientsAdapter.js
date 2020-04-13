@@ -29,4 +29,10 @@ class PatientsAdapter {
             .then(resp => resp.json())
             // .then(res => res.json())
     }
+    deletePatient(id) {
+        return fetch(this.baseUrl + `/${id}`, {
+                method: 'DELETE',
+            })
+            .then(resp => resp.json())
+    }
 }

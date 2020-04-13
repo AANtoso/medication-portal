@@ -14,6 +14,12 @@ class Api::V1::PatientsController < ApplicationController
         render json: patient, include: :medications
     end
 
+    def destroy
+        patient = Patient.find(params[:id])
+        patient.delete
+        render json: {patientID: patient.id}
+    end
+
     private
     
     def patient_params
