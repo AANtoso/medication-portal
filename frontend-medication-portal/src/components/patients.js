@@ -15,6 +15,9 @@ class Patients {
         this.patientForm.addEventListener('submit', this.createPatient.bind(this))
         this.sortPati = document.getElementById('sortPait')
         this.sortPati.addEventListener('click', this.sortPatient.bind(this))
+        this.searchPatient = document.getElementById('search-patient-name')
+            // debugger
+        this.searchPatient.addEventListener('click', this.searchPatient.bind(this))
     }
 
     fetchAndLoadPatients() {
@@ -61,6 +64,14 @@ class Patients {
                     this.container.innerHTML += newPatient.patientHTML()
                 })
             })
+    }
+
+    searchPatient() {
+        // debugger
+        // this.adapter.searchPatient()
+        //     .then(patients => {
+        //             patients.filter(function(name) const name = []
+        //             })
     }
 
     renderPatients() {
