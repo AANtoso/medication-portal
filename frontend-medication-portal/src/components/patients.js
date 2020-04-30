@@ -16,15 +16,15 @@ class Patients {
         this.patientForm.addEventListener('submit', this.createPatient.bind(this))
         this.sortPati = document.getElementById('sortPait')
         this.sortPati.addEventListener('click', this.sortPatient.bind(this))
-        this.searchPatient = document.getElementById('search-patient-name')
-            // debugger
-        this.searchPatient.addEventListener('click', this.searchPatient.bind(this))
+            // this.searchPatient = document.getElementById('search-patient-name')
+            // this.searchPatient.addEventListener('click', this.searchPatient.bind(this))
     }
 
     fetchAndLoadPatients() {
         this.adapter
             .getPatients()
             .then(patients => {
+                // debugger
                 patients.forEach(patient => this.patients.push(new Patient(patient)))
             })
             .then(() => {
@@ -77,6 +77,7 @@ class Patients {
 
     renderPatients() {
         // console.log(this.patients)
+        // debugger
         this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
     }
 
