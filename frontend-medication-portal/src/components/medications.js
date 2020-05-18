@@ -69,3 +69,12 @@ class Medications {
         li.remove()
     }
 }
+
+
+// function sayName() {
+//     console.log("My name is", theName());  
+//     function theName() {
+//         return 'Jane Doe'
+//     }
+// }
+//     sayName();

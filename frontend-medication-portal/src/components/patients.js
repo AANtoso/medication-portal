@@ -29,6 +29,7 @@ class Patients {
             })
             .then(() => {
                 this.renderPatients()
+                this.findPatient()
             })
     }
 
@@ -40,7 +41,9 @@ class Patients {
         this.adapter.createPatientDB(params)
             .then(patient => {
                 const newPatient = new Patient(patient)
-                this.container.innerHTML += newPatient.patientHTML()
+                    // this.container.setAttribute('data-name', patient.name)
+                this.container.append(newPatient.patientHTML())
+                    // this.container.innerHTML += newPatient.patientHTML()
             })
         this.newPatientName.value = ''
         this.newPatientMrn.value = ''
@@ -62,23 +65,35 @@ class Patients {
                     return 0;
                 }).forEach(patient => {
                     const newPatient = new Patient(patient)
-                    this.container.innerHTML += newPatient.patientHTML()
+                    this.container.append(newPatient.patientHTML())
                 })
             })
     }
 
-    searchPatient() {
-        // debugger
-        // this.adapter.searchPatient()
-        //     .then(patients => {
-        //             patients.filter(function(name) const name = []
-        //             })
+    findPatient() {
+        const searchBar = document.querySelector('#search-bar')
+            // debugger
+        const patients = document.querySelectorAll('div[data-patient-name]')
+            // listen for a value change inside search input
+        searchBar.addEventListener('keyup', e => {
+            // if there is a change, find the div with the data-patient-name = value inside search bar
+            patients.forEach(patient => {
+                if (e.target.value === patient.dataset.patientName) {
+                    this.container.prepend(patient)
+                } else {
+                    patient.remove()
+                }
+            })
+        })
     }
 
+
     renderPatients() {
-        // console.log(this.patients)
-        // debugger
-        this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
+        this.patients.forEach(patient => {
+                this.container.append(patient.patientHTML())
+            })
+            // this.container.innerHTML = this.patients.map(patient => patient.patientHTML()).join(',')
+            // debugger
     }
 
     deletePatient(e) {
