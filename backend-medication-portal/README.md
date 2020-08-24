@@ -5,7 +5,7 @@ Keeping track if your medications can be an exhausting and tasking procedure! Th
 
 ![Demo Gif](https://github.com/AANtoso/medication-portal/blob/master/backend-medication-portal/JavaScript.gif?raw=true)
 
-My Demo can be found at the following link:https://www.youtube.com/watch?v=x6Hj0M1V1Zc&t=34s
+My Demo can be found at the following link: https://www.youtube.com/watch?v=x6Hj0M1V1Zc&t=34s
 
 ## Installation
 To execute this application, clone and run 'cd backend-medication-portal'. Then run 'bundle install'. Run 'rails db:migrate'. Use 'rails server' to run the application in your browser. To view the frontend, open another terminal and run 'cd frontend-medication-portal'. Once you are in the frontend, run 'open index.html'.
